@@ -1,0 +1,16 @@
+<ul class="post-list">
+  {% for post in site.posts %}
+  {% if post.feed != false %}
+  <li class="feed-item">
+    <hr class="feed-divider">
+    {% if post.image %}
+    <img class="feed-icon" src="{{ post.image | prepend: site.media | prepend: site.baseurl }}">
+    {% endif %}
+    <h2 class="feed-subheading">
+      <a class="feed-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </h2>
+    <span class="feed-meta">{{ post.excerpt }}</span>
+  </li>
+  {% endif %}
+  {% endfor %}
+</ul>

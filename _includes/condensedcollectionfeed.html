@@ -1,0 +1,28 @@
+{% comment %}
+Set the variable collection to the collection you wish to display
+{% endcomment %}
+<div class="condensed-feed">
+  <div class="post">
+    <h1 class="page-heading">{{ collection.title }}</h1>
+    <ul class="post-list">
+      {% assign sorted = collection.docs | sort: 'date' %}
+      {% comment %}
+      Dynamically generated feed reverse chronologically
+      {% endcomment %}
+      {% for docs in sorted reversed limit:10 %}
+      {% if docs.feed != false %}
+      <li class="condensed-feed-item">
+        <hr class="condensed-feed-divider">
+        {% if docs.image %}
+        <img class="condensed-feed-icon" src="{{ docs.image | prepend: site.media | prepend: site.baseurl }}">
+        {% endif %}
+        <h2 class="condensed-feed-subheading">
+        <a class="condensed-feed-link" href="{{ docs.url | prepend: site.baseurl }}">{{ docs.title }}</a>
+        </h2>
+        <p class="condensed-feed-meta">{{ docs.description }}</p>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="condensed-feed">
+  <div class="post">
+    <h1 class="page-heading">Posts</h1>
+    <ul class="post-list">
+      {% for post in site.posts limit:10 %}
+      {% if post.feed != false %}
+      <li class="condensed-feed-item">
+        <hr class="condensed-feed-divider">
+        {% if post.image %}
+        <img class="condensed-feed-icon" src="{{ post.image | prepend: site.media | prepend: site.baseurl }}">
+        {% endif %}
+        <h2 class="condensed-feed-subheading">
+          <a class="condensed-feed-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+        <p class="condensed-feed-meta">{{ post.description }}</p>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul> 
+  </div>
+</div>

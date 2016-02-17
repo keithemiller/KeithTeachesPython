@@ -1,0 +1,27 @@
+{% comment %}
+Set the variable collection to the collection you wish to display
+{% endcomment %}
+<ul class="post-list">
+  {% for collec in site.collections %}
+  {% if collec.label == collection %}
+  {% assign sorted = collec.docs | sort: 'date' %}
+  {% comment %}
+  Dynamically generated feed reverse chronologically
+  {% endcomment %}
+  {% for docs in sorted reversed %}
+  {% if docs.feed != false %}
+  <li class="feed-item">
+    <hr class="feed-divider">
+    {% if docs.image %}
+    <img class="feed-icon" src="{{ docs.image | prepend: site.media | prepend: site.baseurl }}">
+    {% endif %}
+    <h2 class="feed-subheading">
+      <a class="feed-link" href="{{ docs.url | prepend: site.baseurl }}">{{ docs.title }}</a>
+        </h2>
+    <span class="feed-meta">{{ docs.excerpt }}</span>
+  </li>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+</ul>

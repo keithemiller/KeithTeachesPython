@@ -1,0 +1,30 @@
+# Site Settings
+title: Relic
+description: > # this means to ignore newlines until "baseurl:"
+  A simplistic Jekyll theme loosely following Google's Material Design Guidelines
+keywords: "Jekyll, Relic, HTML, CSS, Blog"           
+baseurl: "/RelicPreview" # the subpath of your site, e.g. /blog
+url: "https://bellicosedev.github.io" # the base hostname & protocol for your site
+
+# Media Settings
+media: "/media/" # the folder you keep your media in
+favicon: "favicon.png" # name of your favicon, kept in the media folder
+logo: "logo.png" # name of your logo, kept in the media folder
+
+# Contact Settings
+email: bellicosedev@gmail.com
+twitter_username: bellicosedev
+github_username:  bellicosedev
+
+# Collection Settings
+collections:
+    collection1:
+        title: "Collection 1"
+        output: true
+    collection2:
+        title: "Collection 2"
+        output: true
+
+# Build Settings
+markdown: kramdown
+exclude: ["LICENSE", "README.md", "update.sh"]
