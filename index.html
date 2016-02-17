@@ -1,1 +1,10 @@
-First Page
+---
+layout: default
+---
+{% include condensedpostfeed.html %}
+{% for collection in site.collections %}
+{% if collection.label != "posts" %}
+{% include condensedcollectionfeed.html %}
+{% endif %}
+{% endfor %}
+{{ site.pages.title["About"] }}
